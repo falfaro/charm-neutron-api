@@ -1,4 +1,8 @@
 options:
+  dns_domain:
+    default:
+    type: string
+    description: DNS domain for Neutron-managed ports.
   debug:
     default: False
     type: boolean

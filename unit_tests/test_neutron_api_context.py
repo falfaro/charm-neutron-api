@@ -329,6 +329,7 @@ class NeutronCCContextTest(CharmTestCase):
         self.test_config.set('neutron-security-groups', True)
         self.test_config.set('debug', True)
         self.test_config.set('verbose', True)
+        self.test_config.set('dns_domain', 'example.com.')
         self.test_config.set('neutron-external-network', 'bob')
         self.test_config.set('nsx-username', 'bob')
         self.test_config.set('nsx-password', 'hardpass')
@@ -359,13 +360,14 @@ class NeutronCCContextTest(CharmTestCase):
         plugin.return_value = None
         ctxt_data = {
             'debug': True,
+            'verbose': True,
+            'dns_domain': 'example.com.',
             'enable_dvr': False,
             'l3_ha': False,
             'dhcp_agents_per_network': 3,
             'enable_sriov': False,
             'external_network': 'bob',
             'neutron_bind_port': self.api_port,
-            'verbose': True,
             'l2_population': True,
             'overlay_network_type': 'gre',
             'tenant_network_types': 'gre,vlan,flat,local',
@@ -399,13 +401,14 @@ class NeutronCCContextTest(CharmTestCase):
         self.test_config.set('vni-ranges', '1001:2000 3001:4000')
         ctxt_data = {
             'debug': True,
+            'verbose': True,
+            'dns_domain': 'example.com.',
             'enable_dvr': False,
             'l3_ha': False,
             'dhcp_agents_per_network': 3,
             'enable_sriov': False,
             'external_network': 'bob',
             'neutron_bind_port': self.api_port,
-            'verbose': True,
             'l2_population': True,
             'overlay_network_type': 'vxlan',
             'tenant_network_types': 'vxlan,vlan,flat,local',
@@ -442,12 +445,13 @@ class NeutronCCContextTest(CharmTestCase):
         self.os_release.return_value = 'juno'
         ctxt_data = {
             'debug': True,
+            'verbose': True,
+            'dns_domain': 'example.com.',
             'enable_dvr': False,
             'l3_ha': True,
             'enable_sriov': False,
             'external_network': 'bob',
             'neutron_bind_port': self.api_port,
-            'verbose': True,
             'l2_population': False,
             'overlay_network_type': 'gre',
             'tenant_network_types': 'gre,vlan,flat,local',
@@ -482,13 +486,14 @@ class NeutronCCContextTest(CharmTestCase):
         self.test_config.set('enable-sriov', True)
         ctxt_data = {
             'debug': True,
+            'verbose': True,
+            'dns_domain': 'example.com.',
             'enable_dvr': False,
             'l3_ha': False,
             'dhcp_agents_per_network': 3,
             'enable_sriov': True,
             'external_network': 'bob',
             'neutron_bind_port': self.api_port,
-            'verbose': True,
             'l2_population': True,
             'overlay_network_type': 'gre',
             'tenant_network_types': 'gre,vlan,flat,local',

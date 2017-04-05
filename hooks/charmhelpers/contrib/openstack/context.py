@@ -1197,6 +1197,8 @@ class LogLevelContext(OSContextGenerator):
             False if config('debug') is None else config('debug')
         ctxt['verbose'] = \
             False if config('verbose') is None else config('verbose')
+        ctxt['dns_domain']  = \
+            'openstacklocal' if config('dns_dmanin') is None else config('dns_doman')
 
         return ctxt
 
